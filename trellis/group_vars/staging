@@ -1,0 +1,53 @@
+mysql_root_password: stagingpw
+
+github_ssh_keys:
+  - username: masoninthesis
+    authorized:
+      - "{{ web_user }}"
+
+project_pre_build_commands_local:
+   - path: "{{ project.local_path }}/web/app/themes/sage"
+     cmd: npm install
+   - path: "{{ project.local_path }}/web/app/themes/sage"
+     cmd: bower install
+   - path: "{{ project.local_path }}/web/app/themes/sage"
+     cmd: gulp --production
+
+project_local_files:
+  - name: compiled theme assets
+    src: "{{ project.local_path }}/web/app/themes/sage/dist"
+    dest: web/app/themes/sage
+
+wordpress_sites:
+  jackalopemedia.com:
+    site_hosts:
+      - 198.199.92.4
+    local_path: '../site' # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: git@github.com:roots/bedrock.git
+    branch: master
+    subtree: site # Use this if following the roots-example-project structure
+    multisite:
+      enabled: false
+      subdomains: false
+    ssl:
+      enabled: false
+    cache:
+      enabled: false
+      duration: 30s
+    system_cron: true
+    env:
+      wp_home: http://198.199.92.4
+      wp_siteurl: http://198.199.92.4/wp
+      wp_env: staging
+      db_name: example_staging
+      db_user: example_dbuser
+      db_password: example_dbpassword
+      # Generate your keys here: https://api.wordpress.org/secret-key/1.1/salt/
+      auth_key: "generateme"
+      auth_salt: "generateme"
+      logged_in_key: "generateme"
+      logged_in_salt: "generateme"
+      nonce_key: "generateme"
+      nonce_salt: "generateme"
+      secure_auth_key: "generateme"
+      secure_auth_salt: "generateme"
