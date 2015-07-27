@@ -10,7 +10,7 @@ mail_hostname: example.com
 mail_user: smtp_user
 mail_password: smtp_password
 
-hhvm: false
+hhvm: true
 
 web_user: web
 web_group: www-data
