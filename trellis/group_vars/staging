@@ -19,7 +19,7 @@ project_local_files:
     dest: web/app/themes/sage
 
 wordpress_sites:
-  jackalope.com:
+  jackalopemedia.com:
     site_hosts:
       - 198.199.92.4
     local_path: '../site' # path targeting local Bedrock site directory (relative to Ansible root)
