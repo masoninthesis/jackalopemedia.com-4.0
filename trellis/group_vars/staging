@@ -19,11 +19,11 @@ project_local_files:
     dest: web/app/themes/sage
 
 wordpress_sites:
-  jackalopemedia.com:
+  jackalope.com:
     site_hosts:
       - 198.199.92.4
     local_path: '../site' # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:masoninthesis/jackalopemedia.com-4.0.git
+    repo: git@github.com:masoninthesis/jackalopemedia4.git
     branch: master
     subtree: site # Use this if following the roots-example-project structure
     multisite:
