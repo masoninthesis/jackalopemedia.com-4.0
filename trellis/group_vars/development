@@ -6,8 +6,8 @@ wordpress_sites:
   jackalopemedia.com:
     site_hosts:
       - jackalopemedia.dev
-    local_path: ../site # path targeting local Bedrock site directory (relative to Ansible root)
-    repo: git@github.com:roots/bedrock.git
+    local_path: '../site' # path targeting local Bedrock site directory (relative to Ansible root)
+    repo: git@github.com:masoninthesis/jackalopemedia4.git
     site_install: true
     site_title: Example Site
     admin_user: admin
